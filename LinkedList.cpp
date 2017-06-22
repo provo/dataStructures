@@ -10,9 +10,9 @@
 using std::cout;
 using std::endl;
 
-
 // HEAD -> NODE -> NODE -> TAIL -> NULL
 
+// Constructor with default argument c = '0'
 LinkedList::LinkedList(const char c)
 {
 	ListNode *newNode = new ListNode;
@@ -22,15 +22,20 @@ LinkedList::LinkedList(const char c)
 	nodeCount = 1;
 }
 
+// Destructor
 LinkedList::~LinkedList()
 {
 	deleteList();
 }
 
-bool LinkedList::isEmpty() const { return (nodeCount == 0) ? true : false; }
 
+
+// Inline function
+bool LinkedList::isEmpty() const { return (nodeCount == 0) ? true : false; }
+// Return node count
 int LinkedList::getNodeCount() const { return nodeCount; }
 
+// Push a new node to the tail of the list
 void LinkedList::push(const char dat) 
 {
 	ListNode *node = new ListNode;
@@ -81,7 +86,7 @@ char LinkedList::pop()
 	return tmp;
 }
 
-
+// Delete the entire list
 void LinkedList::deleteList()
 {
 	if (isEmpty())
@@ -103,6 +108,7 @@ void LinkedList::deleteList()
 	return;
 }
 
+// Print the entire list
 void LinkedList::printList() const
 {
 	if (isEmpty())
@@ -121,5 +127,41 @@ void LinkedList::printList() const
     	cout << "TAIL -> nullptr" << endl;
 	return;
 }
+
+// Insert new node at front of the list
+void LinkedList::insertAtFront(const char dat)
+{
+	ListNode *node = new ListNode;
+	node->data = dat;
+
+	if (isEmpty())
+	{
+		node->next = nullptr;
+		head = tail = node;
+	}	
+	else
+	{
+		node->next = head;
+		head = node;
+	}	
+	nodeCount++;
+	
+	return;	
+}
+
+// Overload cout << operator to print the list
+std::ostream & operator<<(std::ostream &os, LinkedList &obj)
+{
+	ListNode *curr = obj.head;
+	os << "HEAD -> ";
+	while(curr)
+	{
+		os << curr->data << " ->";	
+		curr = curr->next;
+	}
+	os << " TAIL" << endl;
+	return os;
+}
+
 
 
