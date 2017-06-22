@@ -1,0 +1,3 @@
+# Ignore pre-compiled headers #
+############################### 
+*.gch
