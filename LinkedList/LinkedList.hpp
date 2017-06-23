@@ -24,7 +24,7 @@ public:
 	~LinkedList();
 
 	// Class methods
-	inline bool isEmpty() const;
+	bool isEmpty() const;
 	int getNodeCount() const;
 	void push(const char dat);
 	void insertAtFront(const char dat);
@@ -33,7 +33,7 @@ public:
 	void printList() const;
 
 	// Overloaded operators
-	friend std::ostream & operator<<(std::ostream &os, LinkedList &obj);
+	friend std::ostream & operator<<(std::ostream &os, const LinkedList &obj);
 };
 
 

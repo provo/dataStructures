@@ -31,7 +31,7 @@ LinkedList::~LinkedList()
 
 
 // Inline function
-bool LinkedList::isEmpty() const { return (nodeCount == 0) ? true : false; }
+inline bool LinkedList::isEmpty() const { return (nodeCount == 0) ? true : false; }
 // Return node count
 int LinkedList::getNodeCount() const { return nodeCount; }
 
@@ -150,7 +150,7 @@ void LinkedList::insertAtFront(const char dat)
 }
 
 // Overload cout << operator to print the list
-std::ostream & operator<<(std::ostream &os, LinkedList &obj)
+std::ostream & operator<<(std::ostream &os, const LinkedList &obj)
 {
 	ListNode *curr = obj.head;
 	os << "HEAD -> ";
