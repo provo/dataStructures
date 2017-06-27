@@ -4,5 +4,8 @@
 # Ignore a.out executable files as they are for testing #
 a.out
 
-# Ignore main files as they are just for testing
+# Ignore main files as they are just for testing #
 main.cpp
+
+# Ignore object files #
+*.o
