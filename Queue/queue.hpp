@@ -34,8 +34,8 @@ public:
 
 	// Overloaded operators
 	friend std::ostream & operator<<(std::ostream &os, const Queue &obj);
-	bool operator<(const Queue &obj);
-	bool operator>(const Queue &obj);
+	bool operator<(const Queue &obj) const;
+	bool operator>(const Queue &obj) const;
 };
 
 

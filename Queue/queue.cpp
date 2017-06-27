@@ -35,6 +35,7 @@ bool Queue::isEmpty() const { return (nodeCount == 0) ? true : false; }
 
 int Queue::getCount() const { return nodeCount; }
 
+// Print the entire queue
 void Queue::printQueue() const
 {
 	if (isEmpty())
@@ -52,7 +53,7 @@ void Queue::printQueue() const
 	cout << " FRONT" << endl;
 }
 
-
+// Overload the cout << operator to print the queue
 std::ostream & operator<<(std::ostream &os, const Queue &obj)
 {
 	node *curr = obj.rear;
@@ -67,6 +68,7 @@ std::ostream & operator<<(std::ostream &os, const Queue &obj)
 	return os;
 }
 
+// Insert a new node at the rear of the queue
 void Queue::insert(const char dat)
 {
 	node *newNode = new node;
@@ -87,7 +89,7 @@ void Queue::insert(const char dat)
 	return;
 }
 
-
+// Insert a new node at the front of the queue
 void Queue::cutTheLine(const char dat)
 {
 	node *newNode = new node;
@@ -109,6 +111,7 @@ void Queue::cutTheLine(const char dat)
 	return;
 }
 
+// Remove from the front of the queue
 char Queue::remove()
 {
 	if (isEmpty())
@@ -138,6 +141,7 @@ char Queue::remove()
 	return tmp;
 }
 
+// Delete the entire queue
 void Queue::deleteQueue() 
 {
 	if (isEmpty())
@@ -157,17 +161,17 @@ void Queue::deleteQueue()
 }
 
 //Overloaded operators
-// Return true is this.nodeCount < obj.nodeCount
-bool Queue::operator<(const Queue &obj)
+// Return true if this->nodeCount < obj.nodeCount
+bool Queue::operator<(const Queue &obj) const
 {
-	return (this->nodeCount < obj.nodeCount) ? true : false;
+	return (nodeCount < obj.nodeCount) ? true : false;
 }
 
 
-// Return true is this.nodeCount > obj.nodeCount
-bool Queue::operator>(const Queue &obj)
+// Return true if this->nodeCount > obj.nodeCount
+bool Queue::operator>(const Queue &obj) const
 {
-	return (this->nodeCount > obj.nodeCount) ? true : false;
+	return (nodeCount > obj.nodeCount) ? true : false;
 }
 
 
