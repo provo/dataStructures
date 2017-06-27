@@ -90,10 +90,7 @@ char LinkedList::pop()
 void LinkedList::deleteList()
 {
 	if (isEmpty())
-	{	
-		cout << "The list is already empty" << endl;
 		return;
-	}
 
 	ListNode *del, *curr = head;
 	while(curr)
