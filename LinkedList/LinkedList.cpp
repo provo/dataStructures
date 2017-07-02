@@ -1,7 +1,7 @@
 /*
- * June 20, 2017   LINKED LIST 
- * Linked List implementation featuring char data type although that could 
- * easily be changed or made generic. 
+ * June 20, 2017   LINKED LIST
+ * Linked List implementation featuring char data type although that could
+ * easily be changed or made generic.
  */
 
 #include <iostream>
@@ -17,7 +17,7 @@ LinkedList::LinkedList(const char c)
 {
 	ListNode *newNode = new ListNode;
 	newNode->next = nullptr;
-	newNode->data = c; 
+	newNode->data = c;
 	head = tail = newNode;
 	nodeCount = 1;
 }
@@ -31,12 +31,12 @@ LinkedList::~LinkedList()
 
 
 // Inline function
-inline bool LinkedList::isEmpty() const { return (nodeCount == 0) ? true : false; }
+inline bool LinkedList::isEmpty() const { return (nodeCount == 0); }
 // Return node count
 int LinkedList::getNodeCount() const { return nodeCount; }
 
 // Push a new node to the tail of the list
-void LinkedList::push(const char dat) 
+void LinkedList::push(const char dat)
 {
 	ListNode *node = new ListNode;
 	node->data = dat;
@@ -77,7 +77,7 @@ char LinkedList::pop()
 	ListNode *next_to_last = head;
 
 	while (next_to_last->next != tail)
-		next_to_last = next_to_last->next;	
+		next_to_last = next_to_last->next;
 
 	next_to_last->next = nullptr;
 	tail = next_to_last;
@@ -98,7 +98,7 @@ void LinkedList::deleteList()
 		del = curr;
 		curr = curr->next;
 		delete del;
-	}	
+	}
 	nodeCount = 0;
 	tail = head = nullptr;
 
@@ -113,12 +113,12 @@ void LinkedList::printList() const
 		cout << "The list is empty" << endl;
 		return;
 	}
-		
+
 	ListNode *curr = head;
 	cout << "HEAD -> ";
 	while(curr)
 	{
-	  	cout << curr->data << " -> ";	
+	  	cout << curr->data << " -> ";
 		curr = curr->next;
 	}
     	cout << "TAIL -> nullptr" << endl;
@@ -135,15 +135,15 @@ void LinkedList::insertAtFront(const char dat)
 	{
 		node->next = nullptr;
 		head = tail = node;
-	}	
+	}
 	else
 	{
 		node->next = head;
 		head = node;
-	}	
+	}
 	nodeCount++;
-	
-	return;	
+
+	return;
 }
 
 // Overload cout << operator to print the list
@@ -153,12 +153,9 @@ std::ostream & operator<<(std::ostream &os, const LinkedList &obj)
 	os << "HEAD -> ";
 	while(curr)
 	{
-		os << curr->data << " ->";	
+		os << curr->data << " ->";
 		curr = curr->next;
 	}
 	os << " TAIL" << endl;
 	return os;
 }
-
-
-

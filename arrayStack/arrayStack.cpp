@@ -7,9 +7,9 @@ using std::endl;
 using std::string;
 
 
-inline bool ArrayStack::isEmpty() const { return (top == &stackArray[0]) ? true : false; }
+inline bool ArrayStack::isEmpty() const { return (top == &stackArray[0]); }
 
-inline bool ArrayStack::isFull() const { return (stackElements >= STACK_SIZE) ? true : false; }
+inline bool ArrayStack::isFull() const { return (stackElements >= STACK_SIZE); }
 
 
 ArrayStack::ArrayStack()

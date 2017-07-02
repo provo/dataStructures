@@ -31,7 +31,7 @@ Queue::~Queue()
 	deleteQueue();
 }
 
-bool Queue::isEmpty() const { return (nodeCount == 0) ? true : false; }
+bool Queue::isEmpty() const { return (nodeCount == 0); }
 
 int Queue::getCount() const { return nodeCount; }
 
@@ -49,7 +49,7 @@ void Queue::printQueue() const
 	{
 		cout << curr->data << " | ";
 		curr = curr->next;
-	}	
+	}
 	cout << " FRONT" << endl;
 }
 
@@ -60,7 +60,7 @@ std::ostream & operator<<(std::ostream &os, const Queue &obj)
 	os << "REAR | ";
 	while(curr)
 	{
-		os << curr->data << " | ";	
+		os << curr->data << " | ";
 		curr = curr->next;
 	}
 	os << " FRONT" << endl;
@@ -98,7 +98,7 @@ void Queue::cutTheLine(const char dat)
 	if (isEmpty())
 	{
 		newNode->next = nullptr;
-		front = rear = newNode;		
+		front = rear = newNode;
 	}
 	else
 	{
@@ -124,7 +124,7 @@ char Queue::remove()
 	if (front == rear) // Only one node in the q
 	{
 		delete front;
-	 	front = rear = nullptr;	
+	 	front = rear = nullptr;
 		nodeCount = 0;
 		return tmp;
 	}
@@ -142,7 +142,7 @@ char Queue::remove()
 }
 
 // Delete the entire queue
-void Queue::deleteQueue() 
+void Queue::deleteQueue()
 {
 	if (isEmpty())
 		return;
@@ -153,8 +153,8 @@ void Queue::deleteQueue()
 	{
 		del = curr;
 		curr = curr->next;
-		delete del;	
-	}	
+		delete del;
+	}
 
 	front = rear = nullptr;
 	nodeCount = 0;
@@ -164,14 +164,12 @@ void Queue::deleteQueue()
 // Return true if this->nodeCount < obj.nodeCount
 bool Queue::operator<(const Queue &obj) const
 {
-	return (nodeCount < obj.nodeCount) ? true : false;
+	return (nodeCount < obj.nodeCount);
 }
 
 
 // Return true if this->nodeCount > obj.nodeCount
 bool Queue::operator>(const Queue &obj) const
 {
-	return (nodeCount > obj.nodeCount) ? true : false;
+	return (nodeCount > obj.nodeCount);
 }
-
-
