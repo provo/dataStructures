@@ -1,0 +1,6 @@
+
+# top-most editor config file
+root = true
+
+indent_style = space
+indent_size = 4
