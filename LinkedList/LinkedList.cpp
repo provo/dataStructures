@@ -17,16 +17,16 @@ using std::endl;
 // Constructor with default argument c = '0'
 LinkedList::LinkedList(const char c)
 {
-	ListNode *newNode = new ListNode;
-	if (newNode == nullptr)
-	{
-		cout << "Out of memory" << endl;
-		return;
-	}
-	newNode->next = nullptr;
-	newNode->data = c;
-	head = tail = newNode;
-	nodeCount = 1;
+		ListNode *newNode = new ListNode;
+		if (newNode == nullptr)
+		{
+				cout << "Out of memory" << endl;
+				return;
+		}
+		newNode->next = nullptr;
+		newNode->data = c;
+		head = tail = newNode;
+		nodeCount = 1;
 }
 
 // Destructor
