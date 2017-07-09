@@ -7,33 +7,33 @@
 class ListNode
 {
 public:
-	ListNode *next;
-	char data;
+		ListNode *next;
+		char data;
 };
 
 // Linked List class
-class LinkedList 
+class LinkedList
 {
 private:
-	ListNode *head;
-	ListNode *tail;
-	int nodeCount;		// Hold number of existing nodes
+		ListNode *head;
+		ListNode *tail;
+		int nodeCount;		// Hold number of existing nodes
 public:
-	// Constructor and destructor
-	LinkedList(const char c = '0');
-	~LinkedList();
+		// Constructor and destructor
+		LinkedList(const char c = '0');
+		~LinkedList();
 
-	// Class methods
-	bool isEmpty() const;
-	int getNodeCount() const;
-	void push(const char dat);
-	void insertAtFront(const char dat);
-	char pop();
-	void deleteList();
-	void printList() const;
+		// Class methods
+		bool isEmpty() const;
+		int getNodeCount() const;
+		void push(const char dat);
+		void insertAtFront(const char dat);
+		char pop();
+		void deleteList();
+		void printList() const;
 
-	// Overloaded operators
-	friend std::ostream & operator<<(std::ostream &os, const LinkedList &obj);
+		// Overloaded operators
+		friend std::ostream & operator<<(std::ostream &os, const LinkedList &obj);
 };
 
 

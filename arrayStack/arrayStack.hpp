@@ -1,3 +1,8 @@
+/*
+ *  July 8, 2017
+ *    arrayStack class header file
+ */
+
 #ifndef ARRAYSTACK_HPP
 #define ARRAYSTACK_HPP
 
@@ -26,15 +31,12 @@ public:
     bool isFull() const;
     void printStack() const;
     void peek() const;  // Print top element
-
     void push(const string &str);
     void push(const char *str);
     string pop();
 
     // Overloaded operators
     friend std::ostream & operator<<(std::ostream &os, const ArrayStack &obj);
-
 };
 
-
-#endif // ARRAYSTACK_HPP 
+#endif // ARRAYSTACK_HPP

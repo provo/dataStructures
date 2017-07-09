@@ -15,4 +15,4 @@ arrayStack.o: arrayStack.cpp
 	$(CC) $(FLAGS)  arrayStack.cpp arrayStack.hpp
 
 clean:
-	rm *.o arrayStack 
+	rm *.o *.gch 

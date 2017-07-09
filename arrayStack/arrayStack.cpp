@@ -1,23 +1,33 @@
+/*
+ *  July 8, 2017
+ *  Stack implemented with an array. The stack holds string objects.
+ */
+
+// Included files
 #include <iostream>
 #include <string>
 #include "arrayStack.hpp"
 
+// Using declarations
 using std::cout;
 using std::endl;
 using std::string;
 
 
+// Check if the stack is empty
 inline bool ArrayStack::isEmpty() const { return (top == &stackArray[0]); }
 
+// Check if the stack array is filled
 inline bool ArrayStack::isFull() const { return (stackElements >= STACK_SIZE); }
 
-
+// Default constructor
 ArrayStack::ArrayStack()
 {
     top = stackArray;
     stackElements = 0;
 }
 
+// Constructor with string object as argument
 ArrayStack::ArrayStack(const string &str)
 {
     top = stackArray;
@@ -26,7 +36,7 @@ ArrayStack::ArrayStack(const string &str)
     stackElements = 1;
 }
 
-
+// Constructor with pointer to string as argument
 ArrayStack::ArrayStack(const char *str)
 {
     top = stackArray;
@@ -52,11 +62,24 @@ ArrayStack::ArrayStack(const ArrayStack &obj)
     }
 }
 
+// Have not created a destructor
 ArrayStack::~ArrayStack() { /* Do nothing */ }
 
+// Print the stack
 void ArrayStack::printStack() const
 {
-    string *ptr = top - 1;
+    if (isEmpty())
+    {
+        cout << "The stack is empty" << endl;
+        return;
+    }
+
+    const string *ptr;
+    if (isFull())
+        ptr = &(stackArray[STACK_SIZE - 1]);
+    else
+        ptr = top - 1;
+
     cout << "TOP  ";
     while(ptr != &stackArray[0])
     {
@@ -64,12 +87,12 @@ void ArrayStack::printStack() const
         ptr--;
     }
     cout << *ptr << "  BOTTOM" << endl;
-
-    return;
 }
 
+// View top of the stack
 void ArrayStack::peek() const { cout << "Top element of stack: " << *(top - 1) << endl; }
 
+// Push string object onto the stack
 void ArrayStack::push(const string &str)
 {
     if (isFull())
@@ -84,10 +107,9 @@ void ArrayStack::push(const string &str)
         top = nullptr;
     else
         top++;
-
 }
 
-
+// Push pointer to string onto the stack
 void ArrayStack::push(const char *str)
 {
     if (isFull())
@@ -102,10 +124,9 @@ void ArrayStack::push(const char *str)
         top = nullptr;
     else
         top++;
-
 }
 
-
+// Pop and return top of the stack
 string ArrayStack::pop()
 {
     if (isEmpty())
@@ -121,9 +142,7 @@ string ArrayStack::pop()
     return tmp;
 }
 
-
-
-
+// Overload cout << operator to print the stack
 std::ostream & operator<<(std::ostream &os, const ArrayStack &obj)
 {
     if (obj.isEmpty())
@@ -132,7 +151,12 @@ std::ostream & operator<<(std::ostream &os, const ArrayStack &obj)
         return os;
     }
 
-    string *ptr = obj.top - 1;
+    const string *ptr;
+    if (obj.isFull())
+        ptr = &(obj.stackArray[obj.STACK_SIZE - 1]);
+    else
+        ptr = obj.top - 1;
+
     os << "TOP  ";
     while(ptr != &obj.stackArray[0])
     {
@@ -140,6 +164,5 @@ std::ostream & operator<<(std::ostream &os, const ArrayStack &obj)
         ptr--;
     }
     os << *ptr << "  BOTTOM" << endl;
-
     return os;
 }
