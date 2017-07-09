@@ -1,8 +1,11 @@
 # Ignore pre-compiled headers #
 *.gch
 
-# Ignore a.out executable files as they are for testing #
+# Ignore executable files as they are for testing #
 a.out
+queue
+arrayStack
+linkedList
 
 # Ignore main files as they are just for testing #
 main.cpp
